@@ -3,6 +3,8 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import Register from "./auth/Register"
 import Login from "./auth/Login"
+import BeerList from "./beer/BeerList"
+import Home from "./home/Home"
 
 
 
@@ -11,17 +13,21 @@ const ApplicationViews = () => {
         <React.Fragment>
 
             <Route exact path="/" render={props => {
-                return <Login {...props} />
+                return <Home {...props} />
             }}
             />
 
-            <Route path="/register" render={props => {
+            <Route exact path="/register" render={props => {
                 return <Register {...props} />
             }}
             />
 
-            <Route path="/login" render={props => {
+            <Route exact path="/login" render={props => {
                 return <Login {...props} />
+            }}
+            />
+            <Route exact path="/beers" render={props => {
+                return <BeerList {...props} />
             }}
             />
             
