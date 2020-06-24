@@ -1,7 +1,7 @@
 import React from "react"
 
 
-const BeerCard = props => {
+const HomeBeerCard = props => {
     return (
         <>
         <tbody>
@@ -17,4 +17,4 @@ const BeerCard = props => {
     )
 }
  
-export default BeerCard
+export default HomeBeerCard

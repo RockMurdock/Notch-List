@@ -1,7 +1,7 @@
 import React from "react"
 
 
-const WineCard = props => {
+const HomeWineCard = props => {
     return (
         <>
         <tbody>
@@ -16,4 +16,4 @@ const WineCard = props => {
     )
 }
  
-export default WineCard
+export default HomeWineCard
