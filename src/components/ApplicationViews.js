@@ -5,6 +5,9 @@ import Register from "./auth/Register"
 import Login from "./auth/Login"
 import BeerList from "./beer/BeerList"
 import Home from "./home/Home"
+import NewBeerForm from "./beer/NewBeerForm"
+import BeerReviewDetail from "./beer/BeerReviewDetail"
+import EditBeerForm from "./beer/EditBeerForm"
 
 
 
@@ -28,6 +31,18 @@ const ApplicationViews = () => {
             />
             <Route exact path="/beers" render={props => {
                 return <BeerList {...props} />
+            }}
+            />
+            <Route exact path="/beers/new" render={props => {
+                return <NewBeerForm {...props} />
+            }}
+            />
+            <Route exact path="/beers/:beerId(\d+)" render={props => {
+                return <BeerReviewDetail beerId={parseInt(props.match.params.beerId)} {...props} />
+            }}
+            />
+            <Route path="/:beerId/edit" render={props => {
+                return <EditBeerForm beerId={parseInt(props.match.params.beerId)}  {...props} />
             }}
             />
             

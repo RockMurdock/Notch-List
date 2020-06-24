@@ -4,6 +4,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom"
 import NotchList from "./components/NotchList"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
   <Router>
