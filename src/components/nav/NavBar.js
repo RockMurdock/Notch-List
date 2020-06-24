@@ -9,12 +9,13 @@ const NavBar = props => {
     return (
         <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
             <ul className="nav nav-pills nav-fill">
-                {/* <li className="nav-item">
-                    <Link className="nav-link" to="/">Saturday in the Park</Link>
+                
+                <li className="nav-item">
+                    <Link className="nav-link" to="/beers">Beer Reviews</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/myitinerary">My Itinerary</Link>
-                </li> */}
+                    <Link className="nav-link" to="/">Home</Link>
+                </li>
                 {
                     isAuthenticated() ?
                         <li className="nav-item">
