@@ -10,11 +10,15 @@ const NavBar = props => {
         <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
             <ul className="nav nav-pills nav-fill">
                 
+                
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">Home</Link>
+                </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/beers">Beer Reviews</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/wines">Wine Reviews</Link>
                 </li>
                 {
                     isAuthenticated() ?

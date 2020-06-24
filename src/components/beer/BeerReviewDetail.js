@@ -45,7 +45,7 @@ const BeerReviewDetail = props => {
                 <CardSubtitle>Rating: {beer.rating} </CardSubtitle>
                 <CardSubtitle>Beer Style: {beerStyle.name} </CardSubtitle>
                 <CardSubtitle>How It's Served: {servingStyle.name} </CardSubtitle>
-                <CardSubtitle>ABV: {beer.abv} </CardSubtitle>
+                <CardSubtitle>ABV%: {beer.abv} </CardSubtitle>
                 <CardSubtitle>IBU: {beer.ibu} </CardSubtitle>
                 <CardSubtitle>Location: {beer.location_name} </CardSubtitle>
                 <CardSubtitle>Location Address: {beer.location_address} </CardSubtitle>
