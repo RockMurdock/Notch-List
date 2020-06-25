@@ -18,15 +18,10 @@ const WineList = (props) => {
   };
   
 
-  const deleteWine = (beer) => {
-      if (window.confirm("This will permanently delete your wine info.")) {
-          WineManager.deleteWine(beer)
-            .then(getWine)
-      }
-  }
+  
   useEffect(()=> {
       getWine()
-  },[])
+  },[wines.length])
 
   return (
     <>
@@ -50,7 +45,7 @@ const WineList = (props) => {
               </tr>
           </thead>
         {wines.map((wine) => (
-          <WineCard key={wine.id} wine={wine} deleteWine={deleteWine} {...props} />
+          <WineCard key={wine.id} wine={wine}  {...props} />
         ))}
         </Table>
 

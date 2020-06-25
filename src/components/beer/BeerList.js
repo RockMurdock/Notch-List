@@ -18,15 +18,11 @@ const BeerList = (props) => {
   };
   
 
-  const deleteBeer = (beer) => {
-      if (window.confirm("This will permanently delete your beer info.")) {
-          BeerManager.deleteBeer(beer)
-            .then(getBeer)
-      }
-  }
+  
+  
   useEffect(()=> {
       getBeer()
-  },[])
+  },[beers.length])
 
   return (
     <>
@@ -50,7 +46,7 @@ const BeerList = (props) => {
               </tr>
           </thead>
         {beers.map((beer) => (
-          <BeerCard key={beer.id} beer={beer} deleteBeer={deleteBeer} {...props} />
+          <BeerCard key={beer.id} beer={beer}  {...props} />
         ))}
         </Table>
 

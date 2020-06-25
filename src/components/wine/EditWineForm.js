@@ -7,6 +7,7 @@ import { Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroup
 const EditWineForm = props => {
     const [wine, setWine] = useState({ name: "", drink_style_id: 0, location_name: "", location_address: "", winery: "", rating:"", description:"", abv:"", year:"", image_path:"", created_at:"" })
     const [drinkStyles, setDrinkStyle] = useState([])
+    const [image, setImage] = useState({ imageFile: "", image_path: "Choose File"})
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...wine }
@@ -24,6 +25,10 @@ const EditWineForm = props => {
         
     }
 
+    const handleFileUpload = (evt) => {
+        setImage({ imageFile: evt.target.files[0], image_path: evt.target.files[0].name })
+    }
+
     const handleCancel = () => {
         props.history.push("/wines")
     }
@@ -36,8 +41,21 @@ const EditWineForm = props => {
             || wine.abv === "" || wine.year ==="" ) {
             window.alert("Please make sure all fields are filled out.")
         } else {
+
+            const formData = new FormData()
+            formData.append("image_path", image.imageFile, image.image_path)
+            formData.append("name", wine.name)
+            formData.append("drink_style_id", wine.drink_style_id)
+            formData.append("location_name", wine.location_name)
+            formData.append("location_address", wine.location_address)
+            formData.append("winery", wine.winery)
+            formData.append("rating", wine.rating)
+            formData.append("description", wine.description)
+            formData.append("abv", wine.abv)
+            formData.append("year", wine.year)
+            formData.append("created_at", wine.created_at)
             
-            WineManager.updateWine(wine)
+            WineManager.updateWine(formData, wine.id)
             .then(props.history.push("/wines"))
         }
     }
@@ -106,12 +124,12 @@ const EditWineForm = props => {
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>Image Path</InputGroupText>
                 </InputGroupAddon >
-                <CustomInput type="file" id="image_path"  onChange={handleFieldChange} placeholder= "image path"/>
+                <CustomInput type="file" id="image_path"  onChange={handleFileUpload} placeholder= "image path"/>
             </InputGroup>
             <br/>
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Rating</InputGroupText>
+                    <InputGroupText>Rating {wine.rating} </InputGroupText>
                 </InputGroupAddon >
                 <CustomInput type="range" id="rating" value={wine.rating} min="1" maxv="100" step="1" onChange={handleFieldChange} >
                 </CustomInput>

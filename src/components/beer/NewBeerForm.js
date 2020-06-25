@@ -6,9 +6,11 @@ import { Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroup
 
 
 const NewBeerForm = props => {
-    const [newBeer, setNewBeer] = useState({ name: "", drink_style_id: 0, location_name: "", location_address: "", brewery: "", rating:"", description:"", abv:"", ibu:"", beer_serving_style_id:0, image_path:"", created_at:"" })
+    const [newBeer, setNewBeer] = useState({ name: "", drink_style_id: 0, location_name: "", location_address: "", brewery: "", rating:"", description:"", abv:"", ibu:"", beer_serving_style_id:0, created_at:"" })
     const [drinkStyles, setDrinkStyle] = useState([])
     const [beerServingStyles, setBeerServingStyles] = useState([])
+    const [image, setImage] = useState({ imageFile: "", image_path: "Choose File"})
+
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...newBeer }
@@ -18,6 +20,14 @@ const NewBeerForm = props => {
 
     const handleCancel = () => {
         props.history.push("/beers")
+    }
+    const handleFileUpload = (evt) => {
+        setImage({ imageFile: evt.target.files[0], image_path: evt.target.files[0].name })
+    }
+    const handleRangeChange = evt => {
+        const stateToChange = { ...newBeer }
+        stateToChange[evt.target.id] = parseInt(evt.target.value)
+        setNewBeer(stateToChange)
     }
 
     const constructNewBeer = (evt) => {
@@ -29,7 +39,21 @@ const NewBeerForm = props => {
             window.alert("Please make sure all fields are filled out.")
         } else {
             
-            BeerManager.addBeer(newBeer)
+            const formData = new FormData()
+            formData.append("image_path", image.imageFile, image.image_path)
+            formData.append("name", newBeer.name)
+            formData.append("drink_style_id", newBeer.drink_style_id)
+            formData.append("location_name", newBeer.location_name)
+            formData.append("location_address", newBeer.location_address)
+            formData.append("brewery", newBeer.brewery)
+            formData.append("rating", newBeer.rating)
+            formData.append("description", newBeer.description)
+            formData.append("abv", newBeer.abv)
+            formData.append("ibu", newBeer.ibu)
+            formData.append("beer_serving_style_id", newBeer.beer_serving_style_id)
+            formData.append("created_at", newBeer.created_at)
+
+            BeerManager.addBeer(formData)
             .then(props.history.push("/beers"))
         }
     }
@@ -101,14 +125,14 @@ const NewBeerForm = props => {
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>Image Path</InputGroupText>
                 </InputGroupAddon >
-                <CustomInput type="file" id="image_path" onChange={handleFieldChange} placeholder= "image path"/>
+                <CustomInput type="file" id="image_path" onChange={handleFileUpload} placeholder= "image path"/>
             </InputGroup>
             <br/>
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Rating</InputGroupText>
+                    <InputGroupText>Rating {newBeer.rating} </InputGroupText>
                 </InputGroupAddon >
-                <CustomInput type="range" id="rating" min="1" maxv="100" step="1" onChange={handleFieldChange} >
+                <CustomInput type="range" id="rating" min="1" maxv="100" step="1" onChange={handleRangeChange} >
                 </CustomInput>
             </InputGroup>
             <br/>
