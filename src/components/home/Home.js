@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Authorization from "../auth/Authorization";
 import BeerManager from "../../modules/BeerManager";
 import WineManager from "../../modules/WineManager";
-import { Table, Button } from 'reactstrap';
+import { Table } from 'reactstrap';
 import HomeBeerCard from "./HomeBeerCard";
 import HomeWineCard from "./HomeWineCard";
 

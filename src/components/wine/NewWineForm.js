@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import WineManger from "../../modules/WineManager"
 import DrinkStyleManager from "../../modules/DrinkStyleManager"
-import { Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroupAddon, InputGroupText, CustomInput} from 'reactstrap';
+import { Button, Form, Input, InputGroup, InputGroupAddon, InputGroupText, CustomInput} from 'reactstrap';
 
 
 const NewWineForm = props => {
@@ -103,7 +103,7 @@ const NewWineForm = props => {
             <br/>
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                    <InputGroupText>ABV</InputGroupText>
+                    <InputGroupText>ABV%</InputGroupText>
                 </InputGroupAddon >
                 <Input type="text" id="abv" onChange={handleFieldChange} placeholder= "abv"/>
             </InputGroup>
