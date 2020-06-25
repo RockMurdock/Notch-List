@@ -34,8 +34,8 @@ const WineReviewDetail = props => {
     return (
         <>
         <h1>Wine Details</h1>
-        <Card>
-            {/* <CardImg top width="100%" src={beer.image_path} alt="Beer Image" /> */}
+        <Card style={{width:"50%"}} >
+            <CardImg top width="100%" src={wine.image_path} alt="Wine Image" />
 
             <CardBody>
                 <CardTitle>Name: {wine.name} </CardTitle>

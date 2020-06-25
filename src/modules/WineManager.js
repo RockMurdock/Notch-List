@@ -15,11 +15,10 @@ export default{
         return fetch(`${baseUrl}/wines`, {
             "method": "POST",
             "headers": {
-                "Content-Type": 'application/json',
                 "Accept": "application/json",
                 "Authorization": `Token ${sessionStorage.getItem("notch-list-token")}`
             },
-            body: JSON.stringify(wine)
+            body: wine
         }).then(resp => resp.json())
     },
     deleteWine(wine) {
@@ -40,14 +39,14 @@ export default{
         })
             .then(resp => resp.json())
     },
-    updateWine(Wine) {
-        return fetch(`${baseUrl}/wines/${Wine.id}`, {
+    updateWine(Wine, id) {
+        return fetch(`${baseUrl}/wines/${id}`, {
             "method": "PUT",
             "headers": {
-                "Content-Type": "application/json",
+                "Accept": "application/json",
                 "Authorization": `Token ${sessionStorage.getItem('notch-list-token')}`
             },
-            body: JSON.stringify(Wine)
+            body: Wine
         })
     }
 }

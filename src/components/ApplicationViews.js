@@ -12,6 +12,7 @@ import WineList from "./wine/WineList"
 import WineReviewDetail from "./wine/WineReviewDetail"
 import NewWineForm from "./wine/NewWineForm"
 import EditWineForm from "./wine/EditWineForm"
+import GlasswareList from "./glassware/GlasswareList"
 
 
 
@@ -63,6 +64,10 @@ const ApplicationViews = () => {
             />
             <Route path="/:wineId/edit-wine" render={props => {
                 return <EditWineForm wineId={parseInt(props.match.params.wineId)}  {...props} />
+            }}
+            />
+            <Route exact path="/glassware" render={props => {
+                return <GlasswareList {...props} />
             }}
             />
             

@@ -5,8 +5,10 @@ import { Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroup
 
 
 const NewWineForm = props => {
-    const [newWine, setNewWine] = useState({ name: "", drink_style_id: 0, location_name: "", location_address: "", winery: "", rating:"", description:"", abv:"", image_path:"", created_at:"", year:"" })
+    const [newWine, setNewWine] = useState({ name: "", drink_style_id: 0, location_name: "", location_address: "", winery: "", rating:"", description:"", abv:"", created_at:"", year:"" })
     const [drinkStyles, setDrinkStyle] = useState([])
+    const [image, setImage] = useState({ imageFile: "", image_path: "Choose File"})
+
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...newWine }
@@ -18,6 +20,10 @@ const NewWineForm = props => {
         props.history.push("/wines")
     }
 
+    const handleFileUpload = (evt) => {
+        setImage({ imageFile: evt.target.files[0], image_path: evt.target.files[0].name })
+    }
+
     const constructNewWine = (evt) => {
         evt.preventDefault()
 
@@ -27,7 +33,20 @@ const NewWineForm = props => {
             window.alert("Please make sure all fields are filled out.")
         } else {
             
-            WineManger.addWine(newWine)
+            const formData = new FormData()
+            formData.append("image_path", image.imageFile, image.image_path)
+            formData.append("name", newWine.name)
+            formData.append("drink_style_id", newWine.drink_style_id)
+            formData.append("location_name", newWine.location_name)
+            formData.append("location_address", newWine.location_address)
+            formData.append("winery", newWine.winery)
+            formData.append("rating", newWine.rating)
+            formData.append("description", newWine.description)
+            formData.append("abv", newWine.abv)
+            formData.append("year", newWine.year)
+            formData.append("created_at", newWine.created_at)
+
+            WineManger.addWine(formData)
             .then(props.history.push("/wines"))
         }
     }
@@ -93,12 +112,12 @@ const NewWineForm = props => {
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>Image Path</InputGroupText>
                 </InputGroupAddon >
-                <CustomInput type="file" id="image_path" onChange={handleFieldChange} placeholder= "image path"/>
+                <CustomInput type="file" id="image_path" onChange={handleFileUpload} placeholder= "image path"/>
             </InputGroup>
             <br/>
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                    <InputGroupText>Rating</InputGroupText>
+                    <InputGroupText>Rating {newWine.rating} </InputGroupText>
                 </InputGroupAddon >
                 <CustomInput type="range" id="rating" min="1" maxv="100" step="1" onChange={handleFieldChange} >
                 </CustomInput>
