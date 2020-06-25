@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import BeerManager from "../../modules/BeerManager"
 import DrinkStyleManager from "../../modules/DrinkStyleManager"
 import BeerServingStyleManager from "../../modules/BeerServingStyleManager"
-import { Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroupAddon, InputGroupText, CustomInput} from 'reactstrap';
+import { Button, Form, Input, InputGroup, InputGroupAddon, InputGroupText, CustomInput} from 'reactstrap';
 
 
 const NewBeerForm = props => {
@@ -109,7 +109,7 @@ const NewBeerForm = props => {
             <br/>
             <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                    <InputGroupText>ABV</InputGroupText>
+                    <InputGroupText>ABV%</InputGroupText>
                 </InputGroupAddon >
                 <Input type="text" id="abv" onChange={handleFieldChange} placeholder= "abv"/>
             </InputGroup>

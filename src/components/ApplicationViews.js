@@ -13,6 +13,7 @@ import WineReviewDetail from "./wine/WineReviewDetail"
 import NewWineForm from "./wine/NewWineForm"
 import EditWineForm from "./wine/EditWineForm"
 import GlasswareList from "./glassware/GlasswareList"
+import Authorization from "./auth/Authorization"
 
 
 
@@ -21,12 +22,12 @@ const ApplicationViews = () => {
         <React.Fragment>
 
             <Route exact path="/" render={props => {
-                return <Home {...props} />
+                return <Home isAuthenticated={Authorization.isAuthenticated} {...props} />
             }}
             />
 
             <Route exact path="/register" render={props => {
-                return <Register {...props} />
+                return <Register  {...props} />
             }}
             />
 
@@ -35,39 +36,39 @@ const ApplicationViews = () => {
             }}
             />
             <Route exact path="/beers" render={props => {
-                return <BeerList {...props} />
+                return <BeerList isAuthenticated={Authorization.isAuthenticated} {...props} />
             }}
             />
             <Route exact path="/beers/new" render={props => {
-                return <NewBeerForm {...props} />
+                return <NewBeerForm isAuthenticated={Authorization.isAuthenticated} {...props} />
             }}
             />
             <Route exact path="/beers/:beerId(\d+)" render={props => {
-                return <BeerReviewDetail beerId={parseInt(props.match.params.beerId)} {...props} />
+                return <BeerReviewDetail isAuthenticated={Authorization.isAuthenticated} beerId={parseInt(props.match.params.beerId)} {...props} />
             }}
             />
             <Route path="/:beerId/edit" render={props => {
-                return <EditBeerForm beerId={parseInt(props.match.params.beerId)}  {...props} />
+                return <EditBeerForm isAuthenticated={Authorization.isAuthenticated} beerId={parseInt(props.match.params.beerId)}  {...props} />
             }}
             />
             <Route exact path="/wines" render={props => {
-                return <WineList {...props} />
+                return <WineList isAuthenticated={Authorization.isAuthenticated} {...props} />
             }}
             />
             <Route exact path="/wines/:wineId(\d+)" render={props => {
-                return <WineReviewDetail wineId={parseInt(props.match.params.wineId)} {...props} />
+                return <WineReviewDetail isAuthenticated={Authorization.isAuthenticated} wineId={parseInt(props.match.params.wineId)} {...props} />
             }}
             />
             <Route exact path="/wines/new" render={props => {
-                return <NewWineForm {...props} />
+                return <NewWineForm isAuthenticated={Authorization.isAuthenticated} {...props} />
             }}
             />
             <Route path="/:wineId/edit-wine" render={props => {
-                return <EditWineForm wineId={parseInt(props.match.params.wineId)}  {...props} />
+                return <EditWineForm isAuthenticated={Authorization.isAuthenticated} wineId={parseInt(props.match.params.wineId)}  {...props} />
             }}
             />
             <Route exact path="/glassware" render={props => {
-                return <GlasswareList {...props} />
+                return <GlasswareList isAuthenticated={Authorization.isAuthenticated} {...props} />
             }}
             />
             

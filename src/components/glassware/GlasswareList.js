@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Authorization from "../auth/Authorization";
 import GlasswareManager from "../../modules/GlasswareManager";
 import GlasswareCard from "./GlasswareCard";
-import {CardDeck, CardColumns} from "reactstrap"
+import { CardColumns} from "reactstrap"
 
 const GlasswareList = (props) => {
   const [glasswares, setGlasswares] = useState([]);

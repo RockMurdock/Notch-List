@@ -10,26 +10,41 @@ const NavBar = props => {
         <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
             <ul className="nav nav-pills nav-fill">
                 
-                
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/beers">Beer Reviews</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/wines">Wine Reviews</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/glassware">Glassware</Link>
-                </li>
+                {
+                    isAuthenticated()
+                    ?<li className="nav-item">
+                        <Link className="nav-link" to="/">Home</Link>
+                    </li>
+                    :null
+                }
+                {
+                    isAuthenticated()
+                    ?<li className="nav-item">
+                        <Link className="nav-link" to="/beers">Beer Reviews</Link>
+                    </li>
+                    :null
+                }
+                {
+                    isAuthenticated()
+                    ?<li className="nav-item">
+                        <Link className="nav-link" to="/wines">Wine Reviews</Link>
+                    </li>
+                    :null
+                }
+                {
+                    isAuthenticated()
+                    ?<li className="nav-item">
+                        <Link className="nav-link" to="/glassware">Glassware</Link>
+                    </li>
+                    :null
+                }
                 {
                     isAuthenticated() ?
                         <li className="nav-item">
                             <button className="nav-link fakeLink"
                                 onClick={() => {
                                     logout()
-                                    props.history.push("/")
+                                    props.history.push("/login")
                                 }
                                 }
                             >Logout</button>
