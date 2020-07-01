@@ -75,7 +75,8 @@ const EditWineForm = props => {
     },[])
     return (
         <>
-        <Form>
+        <center>
+        <Form style={{width:"50%"}} >
             <h1>Wine Review Edit Form</h1>
             <br/>
             <InputGroup>
@@ -161,7 +162,7 @@ const EditWineForm = props => {
         
         <Button onClick={editWineReview} >Submit</Button>
         <Button onClick={handleCancel}>Cancel</Button>
-
+        </center>
         </>
     )
 }

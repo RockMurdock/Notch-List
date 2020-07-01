@@ -33,11 +33,14 @@ const Home = props => {
     },[])
     return (
         <>
+        <center>
         <h1>Welcome To Notch-List</h1>
         <br/>
         <br/>
         <h4>Last Five Beer Reviews</h4>
-        <Table bordered>
+        </center>
+        <center>
+        <Table bordered style={{ width:"50%"}} >
           <thead>
               <tr>
                 <th>Beer Name</th>
@@ -50,10 +53,12 @@ const Home = props => {
           <HomeBeerCard key={beer.id} beer={beer} {...props} />
         ))}
         </Table>
+        </center>
         <br/>
         <br/>
+        <center>
         <h4>Last Five Wine Reviews</h4>
-        <Table bordered>
+        <Table bordered style={{width:"50%"}} >
           <thead>
               <tr>
                 <th>Wine Name</th>
@@ -66,6 +71,7 @@ const Home = props => {
           <HomeWineCard key={wine.id} wine={wine}  {...props} />
         ))}
         </Table>
+        </center>
         </>
     )
 }

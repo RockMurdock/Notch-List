@@ -58,7 +58,6 @@ const EditBeerForm = props => {
             formData.append("ibu", beer.ibu)
             formData.append("beer_serving_style_id", beer.beer_serving_style_id)
             formData.append("created_at", beer.created_at)
-            console.log(formData)
 
             BeerManager.updateBeer(formData, beer.id)
             .then(props.history.push("/beers"))
@@ -86,7 +85,8 @@ const EditBeerForm = props => {
     },[])
     return (
         <>
-        <Form>
+        <center>
+        <Form style={{width:"50%"}} >
             <h1>Beer Review Edit Form</h1>
             <br/>
             <InputGroup>
@@ -183,10 +183,11 @@ const EditBeerForm = props => {
             <br/>
 
         </Form>
-        
+        </center>
+        <center>
         <Button onClick={editBeerReview} >Submit</Button>
         <Button onClick={handleCancel}>Cancel</Button>
-
+        </center>
         </>
     )
 }

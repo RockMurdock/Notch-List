@@ -7,7 +7,7 @@ const NavBar = props => {
     const { isAuthenticated, logout } = Authorization()
 
     return (
-        <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+        <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow" style={{ justifyContent: "center", backgroundColor: "#484848" }} >
             <ul className="nav nav-pills nav-fill">
                 
                 {

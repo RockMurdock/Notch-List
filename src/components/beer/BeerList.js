@@ -26,7 +26,9 @@ const BeerList = (props) => {
 
   return (
     <>
+      <center  >
       <h1>Beer Reviews</h1>
+      
         <Button
               type="button" 
               onClick={() => {
@@ -36,7 +38,8 @@ const BeerList = (props) => {
               Add Beer Review
         </Button>
             <p></p>
-        <Table bordered>
+        
+        <Table bordered style={{width:"50%"}} >
           <thead>
               <tr>
                 <th>Beer Name</th>
@@ -49,6 +52,7 @@ const BeerList = (props) => {
           <BeerCard key={beer.id} beer={beer}  {...props} />
         ))}
         </Table>
+        </center>
 
     </>
   );

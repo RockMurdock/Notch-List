@@ -27,7 +27,8 @@ const Register = props => {
   }
 
   return (
-    <form className="form--login" onSubmit={handleRegister}>
+      <center>
+    <form className="form--login" onSubmit={handleRegister} style={{backgroundColor:"#DCDCDC"}} >
       <h1 className="h3 mb-3 font-weight-normal">Register to use Notch-List</h1>
       <fieldset>
         <label htmlFor="firstName"> First Name </label>
@@ -70,6 +71,7 @@ const Register = props => {
                     </button>
       </fieldset>
     </form>
+    </center>
   )
 }
 
