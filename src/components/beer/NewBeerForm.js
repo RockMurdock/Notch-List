@@ -76,7 +76,8 @@ const NewBeerForm = props => {
     },[])
     return (
         <>
-        <Form>
+        <center>
+        <Form style={{width:"50%"}} >
             <h1>Beer Review Form</h1>
             <br/>
             <InputGroup>
@@ -173,9 +174,11 @@ const NewBeerForm = props => {
             <br/>
 
         </Form>
-        
+        </center>
+        <center>
         <Button onClick={constructNewBeer} >Submit</Button>
         <Button onClick={handleCancel}>Cancel</Button>
+        </center>
 
         </>
     )

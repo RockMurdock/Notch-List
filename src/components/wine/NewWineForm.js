@@ -63,7 +63,8 @@ const NewWineForm = props => {
     
     return (
         <>
-        <Form>
+        <center>
+        <Form style={{width:"50%"}} >
             <h1>Wine Review Form</h1>
             <br/>
             <InputGroup>
@@ -146,10 +147,12 @@ const NewWineForm = props => {
             <br/>
 
         </Form>
+        </center>
+        <center>
         
         <Button onClick={constructNewWine} >Submit</Button>
         <Button onClick={handleCancel}>Cancel</Button>
-
+        </center>
         </>
     )
 }

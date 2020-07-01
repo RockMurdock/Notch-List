@@ -33,25 +33,27 @@ const WineReviewDetail = props => {
     }, [])
     return (
         <>
+        <center>
         <h1>Wine Details</h1>
-        <Card style={{width:"50%"}} >
-            <CardImg top width="100%" src={wine.image_path} alt="Wine Image" />
+        <Card className="text-left" style={{width:"50%"}} >
+            <CardImg top width="100%" style={{ alignSelf:"center", width:"380px", height:"1000px"}} src={wine.image_path} alt="Wine Image" />
 
             <CardBody>
-                <CardTitle>Name: {wine.name} </CardTitle>
-                <CardSubtitle>Winery: {wine.winery} </CardSubtitle>
-                <CardSubtitle>Rating: {wine.rating} </CardSubtitle>
-                <CardSubtitle>Wine Style: {wineStyle.name} </CardSubtitle>
-                <CardSubtitle>ABV%: {wine.abv} </CardSubtitle>
-                <CardSubtitle>Location: {wine.location_name} </CardSubtitle>
-                <CardSubtitle>Location Address: {wine.location_address} </CardSubtitle>
-                <CardSubtitle>Date Tried: {wine.created_at} </CardSubtitle>
-                <CardText>Description: {wine.description} </CardText>
+                <CardTitle><span style={{fontWeight:"bolder"}}>Name:</span> {wine.name} </CardTitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>Winery:</span> {wine.winery} </CardSubtitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>Rating:</span> {wine.rating} </CardSubtitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>Wine Style:</span> {wineStyle.name} </CardSubtitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>ABV%:</span> {wine.abv} </CardSubtitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>Location:</span> {wine.location_name} </CardSubtitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>Location Address:</span> {wine.location_address} </CardSubtitle>
+                <CardSubtitle><span style={{fontWeight:"bolder"}}>Date Tried:</span> {wine.created_at} </CardSubtitle>
+                <CardText><span style={{fontWeight:"bolder"}}>Description:</span> {wine.description} </CardText>
                 <Button onClick={() => {handleEdit(wine.id)}} >Edit</Button>    
-                            
+                <span> </span>        
                 <Button onClick={() => {deleteWine(wine.id)}} >Delete</Button>
             </CardBody>
         </Card>
+        </center>
         </>
     )
 }

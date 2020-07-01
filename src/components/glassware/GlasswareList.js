@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Authorization from "../auth/Authorization";
 import GlasswareManager from "../../modules/GlasswareManager";
 import GlasswareCard from "./GlasswareCard";
-import { CardColumns} from "reactstrap"
+import { CardColumns, CardDeck, CardGroup} from "reactstrap"
 
 const GlasswareList = (props) => {
   const [glasswares, setGlasswares] = useState([]);
@@ -25,14 +25,15 @@ const GlasswareList = (props) => {
 
   return (
     <>
+    <center>
       <h1>Types of Glassware</h1>
         
-        <CardColumns style={{columnCount:"unset"}}>
+        <CardGroup style={{display: "flex", flexWrap:"wrap", justifyContent:"space-evenly"}}>
             {glasswares.map((glassware) => (
             <GlasswareCard key={glassware.id} glassware={glassware}  {...props} />
             ))}
-        </CardColumns>
-
+        </CardGroup>
+    </center>
     </>
   );
 };
